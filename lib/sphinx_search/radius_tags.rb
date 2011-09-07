@@ -57,7 +57,7 @@ module SphinxSearch
         options.merge!(paging)
         tag.locals.pagination_opts = will_paginate_options(tag)
       end
-      tag.globals.results ||= ThinkingSphinx.search(tag.locals.query, options)
+      tag.globals.results ||= Page.search(tag.locals.query, options)
       tag.expand if tag.globals.results.any? and not tag.locals.query.blank?
     end
 
